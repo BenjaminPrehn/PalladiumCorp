@@ -8,5 +8,6 @@ app.listen(port, (error) => {
         console.log('There was an issue starting your application ', error);
     }
     console.log('The app is running on port: ', port);
+    console.log('My changes dont do shit');
 
 });
