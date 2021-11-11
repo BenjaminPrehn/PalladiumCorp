@@ -1,0 +1,23 @@
+{
+  "name": "palladiumcorp",
+  "version": "1.0.0",
+  "description": "School project - Creating a web-app for palladium partners handling data",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/BenjaminPrehn/PalladiumCorp.git"
+  },
+  "keywords": [
+    "school",
+    "project"
+  ],
+  "author": "BP & TSN",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/BenjaminPrehn/PalladiumCorp/issues"
+  },
+  "homepage": "https://github.com/BenjaminPrehn/PalladiumCorp#readme"
+}
