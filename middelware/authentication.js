@@ -5,7 +5,7 @@ const fs = require('fs');
 require('dotenv').config();
 
 // Filesystem
-const login = fs.readFileSync(__dirname + "/../public/login.html", "utf-8");
+// const login = fs.readFileSync(__dirname + "/../public/login.html", "utf-8");
 
 // Authentication middelware --> Checks if a user have a match in their cookies
 const authentication = async (req, res, next) => {

@@ -7,6 +7,79 @@
     <title>Document</title>
 </head>
 <body>
-    <h1>This shit works</h1>
+    <div class="projects">
+      </div>
+      <div class="projects-table">
+        <table class="table">
+           <thead>
+              <tr>
+                 <th scope="col">Network</th>
+                 <th scope="col">Username</th>
+                 <th scope="col">Password</th>
+              </tr>
+           </thead>
+           <tbody id="addData">
+           </tbody>
+        </table>
+      </div>
+      <br>
+
+      <form action="/accounts" method="POST">
+        <div class="mb-3">
+           <label for="title" class="form-label">network</label>
+           <input type="text" class="form-control" id="title" name="network" required>
+        </div>
+        <div class="mb-3">
+           <label for="description" class="form-label">username</label>
+           <input type="text" class="form-control" id="username" name="username" required>
+        </div>
+        <div class="mb-3">
+            <label for="description" class="form-label">password</label>
+            <input type="text" class="form-control" id="password" name="password" required>
+         </div>
+
+        <button type="submit" class="btn btn-primary">Create Account</button>
+     </form>
+
+
+
+      <!-- Jquery -->
+      <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+      <!-- JavaScript Bundle with Popper -->
+      <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-gtEjrD/SeCtmISkJkNUaaKMoLD0//ElJ19smozuHV6z3Iehds+3Ulb9Bn9Plx0x4" crossorigin="anonymous"></script>
+      <!--Moment to change the time and date format-->
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.1/moment.min.js" integrity="sha512-qTXRIMyZIFb8iQcfjXWCO8+M5Tbc38Qi5WzdPOYZHIlZpzBHG3L3by84BBBOiRGiEb7KKtAOAs5qYdUiZiQNNQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+      <!-- Custom JS -->
+      <script>
+
+        (async function getAccounts() {
+            try {
+            $.ajax({
+                    method: "GET",
+                    url: "/accounts/all",
+                    dataType: "json"
+                }).done(function(data) {
+
+                    $.each(data, function(i, accounts) {
+
+                        $("#addData")
+                            .append(
+                                $("<tr> <td>" +
+                                        accounts.network
+                                    + "</td> <td>" + 
+                                        accounts.username
+                                    + "</td> <td>" + 
+                                        accounts.password
+                                    + "</td> </tr>"))
+                    });
+                })
+
+            } catch (error) {
+                console.log(error);
+            };
+
+        })();
+
+      </script>
 </body>
 </html>
