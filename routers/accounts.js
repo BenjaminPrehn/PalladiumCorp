@@ -6,6 +6,7 @@ const router = new express.Router();
 
 // Create a new account
 router.post("/accounts", authentication, async (req, res) => {
+
     const accounts = new Accounts({
         ...req.body,
         owner: req.user._id

@@ -1,10 +1,21 @@
+// Imports
 const express = require('express');
+const fs = require('fs');
+const cookieParser = require('cookie-parser');
+const authentication = require('./middelware/authentication.js');
+require('./database/mongoose');
+require('dotenv').config();
+
+// Setup of express
 const app = express();
 
+// Import routes
+const userRouter = require('./routers/user');
+const accountsRouter = require('./routers/accounts');
+
+// Port 
 const port = process.env.PORT || 8080;
 
-<<<<<<< Updated upstream
-=======
 // Middelware
 app.use(express.static(__dirname + "/public"));
 app.use(express.json());
@@ -22,6 +33,7 @@ const dashboard = fs.readFileSync(__dirname + "/public/admin/dashboard.html", "u
 const header = fs.readFileSync(__dirname + "/public/header/header.html", "utf-8");
 const footer = fs.readFileSync(__dirname + "/public/footer/footer.html", "utf-8");
 
+
 // End points
 app.get("/login", (req, res) => {
     res.send(login);
@@ -35,13 +47,14 @@ app.get("/", authentication, (req, res) => {
     res.send(header + dashboard + footer);
 });
 
+
+
+
 // Server setup
->>>>>>> Stashed changes
 app.listen(port, (error) => {
     if (error) {
         console.log('There was an issue starting your application ', error);
     }
     console.log('The app is running on port: ', port);
-    console.log('This is just my change to the app');
-    console.log('why didnøt it see mt changes :/');
+    console.log(process.env.DATABASE_URL);
 });

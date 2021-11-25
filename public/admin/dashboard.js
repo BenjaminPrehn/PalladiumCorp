@@ -1,6 +1,8 @@
+// Get projects upon docuemnt load
 (async function getAccounts() {
     try {
     $.ajax({
+
             method: "GET",
             url: "/accounts/all",
             dataType: "json"
