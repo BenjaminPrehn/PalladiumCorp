@@ -11,6 +11,7 @@ const app = express();
 
 // Import routes
 const userRouter = require('./routers/user');
+const accountsRouter = require('./routers/accounts');
 
 // Port 
 const port = process.env.PORT || 8080;
@@ -23,6 +24,7 @@ app.use(express.urlencoded({ extended: false }));
 
 // Routes 
 app.use(userRouter);
+app.use(accountsRouter);
 
 // File System 
 const login = fs.readFileSync(__dirname + "/public/login.html", "utf-8");

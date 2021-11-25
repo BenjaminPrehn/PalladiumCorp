@@ -1,0 +1,26 @@
+h5 {
+    text-align: center;
+}
+
+span {
+    margin: 4px;
+}
+
+.projects {
+    margin: 0 auto;
+    text-align: center;
+}
+
+.projects-table {
+    margin: 0 auto;
+    padding: 20px;
+}
+
+#viewProjectModal {
+    text-align: center;
+}
+
+#p-bold {
+    font-weight: bold;
+}
+

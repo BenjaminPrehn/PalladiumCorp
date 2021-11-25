@@ -3,7 +3,7 @@ const mongoose = require('mongoose');
 const validator = require('validator');
 const bcrypt = require('bcryptjs');
 const jwt = require('jsonwebtoken');
-const Accounts = require('./account');
+// const Accounts = require('./account');
 require('dotenv').config();
 
 // User Schema
@@ -35,6 +35,11 @@ const userSchema = new mongoose.Schema({
         minLength: 6,
         trim: true
     },
+    role: {
+        type: String,
+        default: "user",
+        enum: ["user", "admin"]
+    },
     tokens: [{
         token: {
             type: String,
@@ -46,15 +51,14 @@ const userSchema = new mongoose.Schema({
 timestamps: true
 });
 
-// Adding a one to many connection to projects
-userSchema.virtual('account', {
+// Adding a one to many connection to accounts
+userSchema.virtual('accounts', {
     ref: 'Accounts',
     localField: '_id',
     foreignField: 'owner'
 })
 
 // METHODS
-
 // When creating and getting a user, remove pass and token from json string which is returned
 userSchema.methods.toJSON = function () {
     const user = this; 
