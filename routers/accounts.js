@@ -5,7 +5,8 @@ const Accounts = require('../models/account');
 const router = new express.Router();
 
 // Create a new account
-router.post("/accounts", authentication, access('createOwn', 'account'), async (req, res) => {
+router.post("/accounts", authentication, async (req, res) => {
+
     const accounts = new Accounts({
         ...req.body,
         owner: req.user._id
