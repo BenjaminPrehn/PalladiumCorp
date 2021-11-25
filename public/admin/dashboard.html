@@ -1,0 +1,45 @@
+    <!-- start page title -->
+    <div class="row">
+        <div class="col-12">
+            <div class="page-title-box">
+                <h4 class="page-title">Dashboard</h4>
+            </div>
+        </div>
+    </div>
+    <!-- end page title -->
+
+    <div class="row">
+        <div class="col-12">
+            <table id="datatable-buttons" class="table table-striped dt-responsive nowrap w-100">
+                <thead>
+                    <tr>
+                        <th>Network</th>
+                        <th>Username</th>
+                        <th>Password</th>
+                    </tr>
+                </thead> 
+            
+                <tbody id="addData">
+
+                </tbody>
+            </table>
+        </div>
+    </div>
+      <br>
+
+      <form action="/accounts" method="POST">
+        <div class="mb-3">
+           <label for="title" class="form-label">Network</label>
+           <input type="text" class="form-control" id="title" name="network" required>
+        </div>
+        <div class="mb-3">
+           <label for="description" class="form-label">Username</label>
+           <input type="text" class="form-control" id="username" name="username" required>
+        </div>
+        <div class="mb-3">
+            <label for="description" class="form-label">Password</label>
+            <input type="text" class="form-control" id="password" name="password" required>
+         </div>
+
+        <button type="submit" class="btn btn-primary">Create Account</button>
+     </form>

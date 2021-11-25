@@ -3,6 +3,40 @@ const app = express();
 
 const port = process.env.PORT || 8080;
 
+<<<<<<< Updated upstream
+=======
+// Middelware
+app.use(express.static(__dirname + "/public"));
+app.use(express.json());
+app.use(cookieParser());
+app.use(express.urlencoded({ extended: false }));
+
+// Routes 
+app.use(userRouter);
+app.use(accountsRouter);
+
+// File System 
+const login = fs.readFileSync(__dirname + "/public/login.html", "utf-8");
+const create = fs.readFileSync(__dirname + "/public/create.html", "utf-8");
+const dashboard = fs.readFileSync(__dirname + "/public/admin/dashboard.html", "utf-8");
+const header = fs.readFileSync(__dirname + "/public/header/header.html", "utf-8");
+const footer = fs.readFileSync(__dirname + "/public/footer/footer.html", "utf-8");
+
+// End points
+app.get("/login", (req, res) => {
+    res.send(login);
+});
+
+app.get("/create", (req, res) => {
+    res.send(create);
+});
+
+app.get("/", authentication, (req, res) => {
+    res.send(header + dashboard + footer);
+});
+
+// Server setup
+>>>>>>> Stashed changes
 app.listen(port, (error) => {
     if (error) {
         console.log('There was an issue starting your application ', error);
