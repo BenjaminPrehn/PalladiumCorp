@@ -1,7 +1,8 @@
 // Get projects upon docuemnt load
-(async function getProjects() {
+(async function getAccounts() {
     try {
-       $.ajax({
+    $.ajax({
+
             method: "GET",
             url: "/accounts/all",
             dataType: "json"
@@ -15,6 +16,8 @@
                                 accounts.network
                             + "</td> <td>" + 
                                 accounts.username
+                            + "</td> <td>" + 
+                                accounts.password
                             + "</td> </tr>"))
             });
         })

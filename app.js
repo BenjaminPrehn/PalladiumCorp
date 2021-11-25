@@ -29,7 +29,10 @@ app.use(accountsRouter);
 // File System 
 const login = fs.readFileSync(__dirname + "/public/login.html", "utf-8");
 const create = fs.readFileSync(__dirname + "/public/create.html", "utf-8");
-const projects = fs.readFileSync(__dirname + "/public/admin/dashboard.html", "utf-8");
+const dashboard = fs.readFileSync(__dirname + "/public/admin/dashboard.html", "utf-8");
+const header = fs.readFileSync(__dirname + "/public/header/header.html", "utf-8");
+const footer = fs.readFileSync(__dirname + "/public/footer/footer.html", "utf-8");
+
 
 // End points
 app.get("/login", (req, res) => {
@@ -41,8 +44,11 @@ app.get("/create", (req, res) => {
 });
 
 app.get("/", authentication, (req, res) => {
-    res.send(projects);
+    res.send(header + dashboard + footer);
 });
+
+
+
 
 // Server setup
 app.listen(port, (error) => {

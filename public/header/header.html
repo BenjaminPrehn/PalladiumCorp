@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <title>PalladiumCorp</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <!-- App favicon -->
+    <link rel="shortcut icon" href="../assets/images/favicon.ico" />
+
+    <!-- App css -->
+    <link
+      href="../assets/css/config/material/bootstrap.min.css"
+      rel="stylesheet"
+      type="text/css"
+      id="bs-default-stylesheet"
+    />
+    <link
+      href="../assets/css/config/material/app.min.css"
+      rel="stylesheet"
+      type="text/css"
+      id="app-default-stylesheet"
+    />
+    <link
+      href="../assets/css/config/material/bootstrap-dark.min.css"
+      rel="stylesheet"
+      type="text/css"
+      id="bs-dark-stylesheet"
+    />
+    <link
+      href="../assets/css/config/material/app-dark.min.css"
+      rel="stylesheet"
+      type="text/css"
+      id="app-dark-stylesheet"
+    />
+
+    <!-- third party css -->
+    <link href="../assets/libs/datatables.net-bs5/css/dataTables.bootstrap5.min.css" rel="stylesheet" type="text/css" />
+    <link href="../assets/libs/datatables.net-responsive-bs5/css/responsive.bootstrap5.min.css" rel="stylesheet" type="text/css" />
+    <link href="../assets/libs/datatables.net-buttons-bs5/css/buttons.bootstrap5.min.css" rel="stylesheet" type="text/css" />
+    <link href="../assets/libs/datatables.net-select-bs5/css//select.bootstrap5.min.css" rel="stylesheet" type="text/css" />
+    <!-- third party css end -->
+
+    <!-- icons -->
+    <link href="../assets/css/icons.min.css" rel="stylesheet" type="text/css" />
+  </head>
+
+  <!-- body start -->
+  <body
+    class="loading"
+    data-layout='{"mode": "dark", "width": "fluid", "menuPosition": "fixed", "sidebar": { "color": "brand", "size": "default", "showuser": false}, "topbar": {"color": "dark"}, "showRightSidebarOnPageLoad": false}'
+  >
+    <!-- Begin page -->
+    <div id="wrapper">
+      <!-- Topbar Start -->
+      <div class="navbar-custom">
+        <div class="container-fluid">
+          <ul class="list-unstyled topnav-menu float-end mb-0">
+            <li class="dropdown notification-list topbar-dropdown">
+              <a
+                class="
+                  nav-link
+                  dropdown-toggle
+                  nav-user
+                  me-0
+                  waves-effect waves-light
+                "
+                data-bs-toggle="dropdown"
+                href="#"
+                role="button"
+                aria-haspopup="false"
+                aria-expanded="false"
+              >
+                <img
+                  src="../assets/images/users/user-1.jpg"
+                  alt="user-image"
+                  class="rounded-circle"
+                />
+                <span class="pro-user-name ms-1">
+                  John Doe <i class="mdi mdi-chevron-down"></i>
+                </span>
+              </a>
+              <div class="dropdown-menu dropdown-menu-end profile-dropdown">
+                <!-- item-->
+                <a href="javascript:void(0);" class="dropdown-item notify-item">
+                  <i class="fe-user"></i>
+                  <span>My Account</span>
+                </a>
+
+                <div class="dropdown-divider"></div>
+
+                <!-- item-->
+                <a href="javascript:void(0);" class="dropdown-item notify-item">
+                  <i class="fe-log-out"></i>
+                  <span>Logout</span>
+                </a>
+              </div>
+            </li>
+          </ul>
+
+          <!-- LOGO -->
+          <div class="logo-box">
+            <a href="/" class="logo logo-dark text-center">
+              <span class="logo-sm">
+                <h3>PalladiumCorp</h3>
+                <!-- <img src="../assets/images/logo-sm.png" alt="" height="22"> -->
+                <!-- <span class="logo-lg-text-light">UBold</span> -->
+              </span>
+              <span class="logo-lg">
+                <h3>PalladiumCorp</h3>
+                <!-- <img src="../assets/images/logo-dark.png" alt="" height="20"> -->
+                <!-- <span class="logo-lg-text-light">U</span> -->
+              </span>
+            </a>
+
+            <a href="/" class="logo logo-light text-center">
+              <span class="logo-sm">
+                <h3>PalladiumCorp</h3>
+                <!-- <img src="../assets/images/logo-sm.png" alt="" height="22"> -->
+              </span>
+              <span class="logo-lg">
+                <h3>PalladiumCorp</h3>
+                <!-- <img src="../assets/images/logo-light.png" alt="" height="20"> -->
+              </span>
+            </a>
+          </div>
+
+          <ul class="list-unstyled topnav-menu topnav-menu-left m-0">
+            <li>
+              <button class="button-menu-mobile waves-effect waves-light">
+                <i class="fe-menu"></i>
+              </button>
+            </li>
+
+            <li>
+              <!-- Mobile menu toggle (Horizontal Layout)-->
+              <a
+                class="navbar-toggle nav-link"
+                data-bs-toggle="collapse"
+                data-bs-target="#topnav-menu-content"
+              >
+                <div class="lines">
+                  <span></span>
+                  <span></span>
+                  <span></span>
+                </div>
+              </a>
+              <!-- End mobile menu toggle-->
+            </li>
+
+            <li class="dropdown d-none d-xl-block">
+              <a
+                class="nav-link dropdown-toggle waves-effect waves-light"
+                data-bs-toggle="dropdown"
+                href="#"
+                role="button"
+                aria-haspopup="false"
+                aria-expanded="false"
+              >
+                Create New
+                <i class="mdi mdi-chevron-down"></i>
+              </a>
+              <div class="dropdown-menu">
+                <!-- item-->
+                <a href="javascript:void(0);" class="dropdown-item">
+                  <i class="fe-briefcase me-1"></i>
+                  <span>New Account</span>
+                </a>
+
+                <!-- item-->
+                <a href="javascript:void(0);" class="dropdown-item">
+                  <i class="fe-user me-1"></i>
+                  <span>Create Users</span>
+                </a>
+              </div>
+            </li>
+          </ul>
+          <div class="clearfix"></div>
+        </div>
+      </div>
+      <!-- end Topbar -->
+
+      <!-- ========== Left Sidebar Start ========== -->
+      <div class="left-side-menu">
+        <div class="h-100" data-simplebar>
+          <!--- Sidemenu -->
+          <div id="sidebar-menu">
+            <ul id="side-menu">
+              <li class="menu-title">Navigation</li>
+
+              <li>
+                <a href="#sidebarDashboards">
+                  <i class="mdi mdi-view-dashboard-outline"></i>
+                  <span> Dashboards </span>
+                </a>
+              </li>
+
+              <li>
+                <a href="#sidebarAuth">
+                  <i class="mdi mdi-account-circle-outline"></i>
+                  <span> Employees </span>
+                </a>
+              </li>
+            </ul>
+          </div>
+          <!-- End Sidemenu -->
+
+          <div class="clearfix"></div>
+        </div>
+        <!-- Sidebar -left -->
+      </div>
+      <!-- ========== Left Sidebar End ========== -->
+
+      <!-- ============================================================== -->
+      <!-- Start Page Content here -->
+      <!-- ============================================================== -->
+
+        <div class="content-page">
+            <div class="content">
+                <!-- Start Content-->
+                <div class="container-fluid">
+
+
+
+
+
+
+
