@@ -11,12 +11,17 @@
 
     <div class="row">
         <div class="col-12">
+            <div class="button-list">
+                <!-- Sign Up modal -->
+                <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#create-account-modal">Create</button>
+            </div>
             <table id="datatable-buttons" class="table table-striped dt-responsive nowrap w-100">
                 <thead>
                     <tr>
                         <th>Network</th>
                         <th>Username</th>
                         <th>Password</th>
+                        <th>Actions</th>
                     </tr>
                 </thead> 
             
@@ -27,22 +32,41 @@
         </div>
     </div>
 
-      <br>
+<!-- =========== MODALS ===========-->
 
-      <form action="/accounts" method="POST">
-        <div class="mb-3">
-           <label for="title" class="form-label">Network</label>
-           <input type="text" class="form-control" id="title" name="network" required>
+<!-- Create account modal content -->
+<div id="create-account-modal" class="modal fade" tabindex="-1" role="dialog" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-body">
+                <div class="text-center mt-2 mb-4">
+                    <h3>Create Account</h3>
+                </div>
+    
+                <form class="px-3" action="/accounts" method="post">
+
+                    <div class="mb-3">
+                        <label for="network" class="form-label">Network</label>
+                        <input class="form-control" type="text" id="network" name="network" required="" placeholder="Affiliate Network">
+                    </div>
+
+                    <div class="mb-3">
+                        <label for="username" class="form-label">Username</label>
+                        <input class="form-control" type="text" id="username" name="username" required="" placeholder="affiliate@hamburger.com">
+                    </div>
+
+                    <div class="mb-3">
+                        <label for="password" class="form-label">Password</label>
+                        <input class="form-control" type="text" required="" id="password" name="password" placeholder="Enter your password">
+                    </div>
+
+                    <div class="mb-3 text-center">
+                        <button class="btn btn-primary" type="submit">Create</button>
+                    </div>
+
+                </form>
+
+            </div>
         </div>
-        <div class="mb-3">
-           <label for="description" class="form-label">Username</label>
-           <input type="text" class="form-control" id="username" name="username" required>
-        </div>
-        <div class="mb-3">
-            <label for="description" class="form-label">Password</label>
-
-            <input type="text" class="form-control" id="password" name="password" required>
-         </div>
-
-        <button type="submit" class="btn btn-primary">Create Account</button>
-     </form>
+    </div>
+</div>

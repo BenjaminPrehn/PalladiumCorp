@@ -18,7 +18,10 @@
                                 accounts.username
                             + "</td> <td>" + 
                                 accounts.password
-                            + "</td> </tr>"))
+                            + "</td> <td> " +
+                            "<a style='margin-right:5px;' onclick=\"getAccountById('"+ accounts._id +"')\" ><i class='mdi mdi-file-document-edit-outline'></i></a>" + 
+                            "<a onclick=\"deleteAccountById('"+ accounts._id +"')\"><i class='mdi mdi-close'></i></a>" + 
+                    + " </td> </tr>"))
             });
         })
 
@@ -27,3 +30,39 @@
     };
 
 })();
+
+// =========================================================
+
+// Update a project by it's id
+function updateAccountById(id) {
+    try {
+        $.ajax({
+            method: "POST",
+            url: "/accounts/" + id,
+            dataType: "json"
+        }).done()
+            location.reload()
+        } catch (error) {
+            console.log(error);
+    }
+}
+
+// =========================================================
+
+// Delete a project by its ID 
+function deleteAccountById(id) {
+    try {
+        $.ajax({
+            method: "DELETE",
+            url: "/accounts/" + id,
+            dataType: "json"
+        }).done(
+            location.reload()
+        );
+
+    } catch (error) {
+        alert("Error")
+        console.log(error);
+    }
+    
+};
