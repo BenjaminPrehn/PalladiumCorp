@@ -8,6 +8,13 @@
     <!-- App favicon -->
     <link rel="shortcut icon" href="../assets/images/favicon.ico" />
 
+    <!-- third party css -->
+    <link href="../assets/libs/datatables.net-bs5/css/dataTables.bootstrap5.min.css" rel="stylesheet" type="text/css" />
+    <link href="../assets/libs/datatables.net-responsive-bs5/css/responsive.bootstrap5.min.css" rel="stylesheet" type="text/css" />
+    <link href="../assets/libs/datatables.net-buttons-bs5/css/buttons.bootstrap5.min.css" rel="stylesheet" type="text/css" />
+    <link href="../assets/libs/datatables.net-select-bs5/css//select.bootstrap5.min.css" rel="stylesheet" type="text/css" />
+    <!-- third party css end -->
+
     <!-- App css -->
     <link
       href="../assets/css/config/material/bootstrap.min.css"
@@ -33,13 +40,6 @@
       type="text/css"
       id="app-dark-stylesheet"
     />
-
-    <!-- third party css -->
-    <link href="../assets/libs/datatables.net-bs5/css/dataTables.bootstrap5.min.css" rel="stylesheet" type="text/css" />
-    <link href="../assets/libs/datatables.net-responsive-bs5/css/responsive.bootstrap5.min.css" rel="stylesheet" type="text/css" />
-    <link href="../assets/libs/datatables.net-buttons-bs5/css/buttons.bootstrap5.min.css" rel="stylesheet" type="text/css" />
-    <link href="../assets/libs/datatables.net-select-bs5/css//select.bootstrap5.min.css" rel="stylesheet" type="text/css" />
-    <!-- third party css end -->
 
     <!-- icons -->
     <link href="../assets/css/icons.min.css" rel="stylesheet" type="text/css" />
@@ -76,13 +76,14 @@
                   alt="user-image"
                   class="rounded-circle"
                 />
-                <span class="pro-user-name ms-1">
+                <span class="pro-user-name ms-1" id="profileName">
                   John Doe <i class="mdi mdi-chevron-down"></i>
                 </span>
               </a>
+
               <div class="dropdown-menu dropdown-menu-end profile-dropdown">
                 <!-- item-->
-                <a href="javascript:void(0);" class="dropdown-item notify-item">
+                <a href="" class="dropdown-item notify-item">
                   <i class="fe-user"></i>
                   <span>My Account</span>
                 </a>
@@ -90,7 +91,7 @@
                 <div class="dropdown-divider"></div>
 
                 <!-- item-->
-                <a href="javascript:void(0);" class="dropdown-item notify-item">
+                <a href="" class="dropdown-item notify-item">
                   <i class="fe-log-out"></i>
                   <span>Logout</span>
                 </a>

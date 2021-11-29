@@ -24,6 +24,11 @@ router.post("/users/create", async (req, res) => {
     }
 });
 
+// Get user profile
+router.get("/users/me", authentication, (req, res) => {
+    res.send(req.user);
+});
+
 // Login a user
 router.post("/users/login", async (req, res) => {
     try {
@@ -34,6 +39,26 @@ router.post("/users/login", async (req, res) => {
     } catch (error) {
         res.status(400).send(`<h1> Wrong Credentials</h1> <a href='/login'><h2> Try again please </h2></a> <p> ${error} </p>`);
 
+    }
+});
+
+// Logout a user
+router.post("/users/logout", authentication, async (req, res) => {
+    try {
+        req.user.tokens = req.user.tokens.filter((token) => {
+            return token.token !== req.token;
+        });
+
+        await req.user.save();
+
+        // res.clearCookie("auth_token");
+
+        res.clearCookie("auth_token")
+        res.redirect("/login");
+
+    } catch (error) {
+        console.log(error);
+        res.status(500).send();
     }
 });
 
