@@ -38,6 +38,47 @@ router.get("/accounts/all", authentication, async (req, res) => {
     }
 });
 
+// Get a project by its ID
+router.get("/accounts/:id", authentication, async (req, res) => {
+
+    try{
+        const account = await Accounts.findOne({_id: req.params.id, owner: req.user._id});
+
+        if(!account) {
+            return res.status(404).send();
+        }
+
+        res.send(account);
+
+    } catch (error) {
+        res.status(500).send(error);
+        console.log(error);
+    }
+});
+
+router.post("/accounts/:id", authentication, async (req, res) => {
+    const updates = Object.keys(req.body);
+
+    try{
+        const account = await Accounts.findOne({_id: req.params.id, owner: req.user._id});
+
+        if(!account) {
+            return res.status(404).send();
+        };
+
+        updates.forEach((update) => {
+            account[update] = req.body[update];
+        });
+
+        await account.save();
+
+        res.redirect("/");
+
+    } catch (error) {
+        res.status(400).send(error);
+    }
+});
+
 // Delete a single project
 router.delete("/accounts/:id", authentication, async (req, res) => {
     try {

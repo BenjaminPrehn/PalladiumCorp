@@ -57,11 +57,48 @@
 
                     <div class="mb-3">
                         <label for="password" class="form-label">Password</label>
-                        <input class="form-control" type="text" required="" id="password" name="password" placeholder="Enter your password">
+                        <input class="form-control" type="text" required="" id="password" name="password" placeholder="MySuperSecretPassword">
                     </div>
 
                     <div class="mb-3 text-center">
                         <button class="btn btn-primary" type="submit">Create</button>
+                    </div>
+
+                </form>
+
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- update account modal content -->
+<div id="update-account-modal" class="modal fade" tabindex="-1" role="dialog" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-body">
+                <div class="text-center mt-2 mb-4">
+                    <h3>Update Account</h3>
+                </div>
+    
+                <form class="px-3" id="updateForm" action="" method="post">
+
+                    <div class="mb-3">
+                        <label for="network" class="form-label">Network</label>
+                        <input class="form-control" type="text" id="networkUpdate" name="network" required="" placeholder="Affiliate Network">
+                    </div>
+
+                    <div class="mb-3">
+                        <label for="username" class="form-label">Username</label>
+                        <input class="form-control" type="text" id="usernameUpdate" name="username" required="" placeholder="affiliate@hamburger.com">
+                    </div>
+
+                    <div class="mb-3">
+                        <label for="password" class="form-label">Password</label>
+                        <input class="form-control" type="text" required="" id="passwordUpdate" name="password" placeholder="MySuperSecretPassword">
+                    </div>
+
+                    <div class="mb-3 text-center">
+                        <button class="btn btn-primary" type="submit">Update</button>
                     </div>
 
                 </form>
