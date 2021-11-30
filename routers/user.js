@@ -42,6 +42,24 @@ router.post("/users/login", async (req, res) => {
     }
 });
 
+// Update a user
+router.post("/users/userUpdate", authentication, async (req, res) => {
+    const updates = Object.keys(req.body);
+
+    try {
+        updates.forEach((update) => {
+            req.user[update] = req.body[update];
+        });
+
+        await req.user.save();
+
+        res.redirect("/profile");
+
+    } catch (error) {
+        res.status(400).send(error);
+    }
+});
+
 // Logout a user
 router.post("/users/logout", authentication, async (req, res) => {
     try {
@@ -56,6 +74,18 @@ router.post("/users/logout", authentication, async (req, res) => {
 
     } catch (error) {
         console.log(error);
+        res.status(500).send();
+    }
+});
+
+// Logout all user sessions
+router.post("/users/logoutAllSessions", authentication, async (req, res) => {
+    try {
+        req.user.tokens = [];
+        await req.user.save();
+        res.clearCookie("auth_token");
+        res.redirect("/login");
+    } catch (error) {
         res.status(500).send();
     }
 });

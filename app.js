@@ -30,6 +30,7 @@ app.use(accountsRouter);
 const login = fs.readFileSync(__dirname + "/public/login.html", "utf-8");
 const create = fs.readFileSync(__dirname + "/public/create.html", "utf-8");
 const dashboard = fs.readFileSync(__dirname + "/public/admin/dashboard.html", "utf-8");
+const profile = fs.readFileSync(__dirname + "/public/profile/profile.html", "utf-8");
 const header = fs.readFileSync(__dirname + "/public/header/header.html", "utf-8");
 const footer = fs.readFileSync(__dirname + "/public/footer/footer.html", "utf-8");
 
@@ -45,6 +46,10 @@ app.get("/create", (req, res) => {
 
 app.get("/", authentication, (req, res) => {
     res.send(header + dashboard + footer);
+});
+
+app.get("/profile", authentication, (req, res) => {
+    res.send(header + profile + footer);
 });
 
 
