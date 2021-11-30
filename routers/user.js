@@ -51,9 +51,7 @@ router.post("/users/logout", authentication, async (req, res) => {
 
         await req.user.save();
 
-        // res.clearCookie("auth_token");
-
-        res.clearCookie("auth_token")
+        res.clearCookie("auth_token");
         res.redirect("/login");
 
     } catch (error) {

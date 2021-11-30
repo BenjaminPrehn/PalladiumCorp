@@ -1,3 +1,5 @@
+
+
 // Get projects upon docuemnt load
 (async function getAccounts() {
     try {
@@ -15,7 +17,7 @@
                 body += "<td>" + accounts.password + "</td>";
                 body += "<td>";
                 body += "<a style='margin-right:5px;' onclick=\"getAccountById('"+ accounts._id +"')\" data-bs-toggle='modal' data-bs-target='#update-account-modal' ><i class='mdi mdi-file-document-edit-outline'></i></a>";
-                body += "<a onclick=\"deleteAccountById('"+ accounts._id +"')\"><i class='mdi mdi-close'></i></a>";
+                body += "<a onclick=\" return confirm('Are you sure you want to Delete?') && deleteAccountById('"+ accounts._id +"')\"><i class='mdi mdi-close'></i></a>";
                 body += "</td>";
                 body += "</tr>";
                 $("#addData").append(body);
@@ -88,6 +90,7 @@ function updateAccountById(id) {
 }
 // =========================================================
 // Delete a project by its ID 
+
 function deleteAccountById(id) {
     try {
         $.ajax({

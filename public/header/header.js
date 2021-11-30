@@ -6,13 +6,12 @@
             dataType: "json"
         }).done(function(user) {
             // Adding name to header
-            $("#profileName").text(" " + user.firstname + " " + user.lastname);
-            console.log(user.firstname);
+            $("#profileName").append(user.firstname + " " + user.lastname + " (" + user.role + ") " + "<i class='mdi mdi-chevron-down'></i>");
         });
     } catch (error) {
         console.log(error);
     }
-});
+})();
 
 function logout() {
     try {
@@ -20,7 +19,8 @@ function logout() {
             method: "POST",
             url: "/users/logout",
             dataType: "json"
-        }).done(
+        }, window.location.reload()
+        ).done(
 
         );
     } catch (error) {
