@@ -2,7 +2,6 @@
 (async function getAccounts() {
     try {
     $.ajax({
-
             method: "GET",
             url: "/accounts/all",
             dataType: "json"
@@ -10,19 +9,19 @@
 
             $.each(data, function(i, accounts) {
 
-                $("#addData")
-                    .append(
-                        $("<tr> <td>" +
-                                accounts.network
-                            + "</td> <td>" + 
-                                accounts.username
-                            + "</td> <td>" + 
-                                accounts.password
-                            + "</td> <td> " +
-                            "<a style='margin-right:5px;' onclick=\"getAccountById('"+ accounts._id +"')\" data-bs-toggle='modal' data-bs-target='#update-account-modal' ><i class='mdi mdi-file-document-edit-outline'></i></a>" + 
-                            "<a onclick=\"deleteAccountById('"+ accounts._id +"')\"><i class='mdi mdi-close'></i></a>" + 
-                    + " </td> </tr>"))
+                var body = "<tr>";
+                body += "<td>" + accounts.network + "</td>";
+                body += "<td>" + accounts.username + "</td>";
+                body += "<td>" + accounts.password + "</td>";
+                body += "<td>";
+                body += "<a style='margin-right:5px;' onclick=\"getAccountById('"+ accounts._id +"')\" data-bs-toggle='modal' data-bs-target='#update-account-modal' ><i class='mdi mdi-file-document-edit-outline'></i></a>";
+                body += "<a onclick=\"deleteAccountById('"+ accounts._id +"')\"><i class='mdi mdi-close'></i></a>";
+                body += "</td>";
+                body += "</tr>";
+                $("#addData").append(body);
             });
+            var init = "<script src='../assets/js/pages/datatables.init.js'></script>"
+            $("#initTable").append(init);
         })
 
     } catch (error) {
