@@ -12,6 +12,7 @@ const app = express();
 // Import routes
 const userRouter = require('./routers/user');
 const accountsRouter = require('./routers/accounts');
+const employessRouter = require('./routers/employess');
 
 // Port 
 const port = process.env.PORT || 8080;
@@ -25,12 +26,14 @@ app.use(express.urlencoded({ extended: false }));
 // Routes 
 app.use(userRouter);
 app.use(accountsRouter);
+app.use(employessRouter);
 
 // File System 
 const login = fs.readFileSync(__dirname + "/public/login.html", "utf-8");
 const create = fs.readFileSync(__dirname + "/public/create.html", "utf-8");
 const dashboard = fs.readFileSync(__dirname + "/public/admin/dashboard.html", "utf-8");
 const profile = fs.readFileSync(__dirname + "/public/profile/profile.html", "utf-8");
+const employess = fs.readFileSync(__dirname + "/public/employess/employess.html", "utf-8");
 const header = fs.readFileSync(__dirname + "/public/header/header.html", "utf-8");
 const footer = fs.readFileSync(__dirname + "/public/footer/footer.html", "utf-8");
 
@@ -50,6 +53,10 @@ app.get("/", authentication, (req, res) => {
 
 app.get("/profile", authentication, (req, res) => {
     res.send(header + profile + footer);
+});
+
+app.get("/employess", authentication, (req, res) => {
+    res.send(header + employess + footer);
 });
 
 

@@ -10,20 +10,6 @@ router.use(bodyParser.urlencoded({ extended: true }));
 // Import model
 const User = require('../models/users');
 
-// Create a new user
-router.post("/users/create", async (req, res) => {
-    const user = new User(req.body);
-
-    try {
-        await user.save();
-        await user.generateAuthToken();
-
-        res.status(201).redirect("/login")
-    } catch (error) {
-        res.status(400).send(error);
-    }
-});
-
 // Get user profile
 router.get("/users/me", authentication, (req, res) => {
     res.send(req.user);

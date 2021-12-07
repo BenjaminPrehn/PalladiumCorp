@@ -1,0 +1,114 @@
+
+    <!-- start page title -->
+    <div class="row">
+        <div class="col-12">
+            <div class="page-title-box">
+                <h4 class="page-title">Employess</h4>
+            </div>
+        </div>
+    </div>
+    <!-- end page title -->
+
+    <div class="row">
+        <div class="col-12">
+            <div class="button-list">
+                <!-- Create account modal -->
+                <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#create-employee-modal">Create</button>
+            </div>
+            <br>
+            <table id="datatable-buttons" class="table table-striped dt-responsive nowrap w-100">
+                <thead>
+                    <tr>
+                        <th>Firstname</th>
+                        <th>Lastname</th>
+                        <th>Email</th>
+                        <th>Actions</th>
+                    </tr>
+                </thead> 
+                <tbody id="addEmployeeData">
+
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+<!-- =========== MODALS ===========-->
+
+<!-- Create account modal content -->
+<div id="create-employee-modal" class="modal fade" tabindex="-1" role="dialog" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-body">
+                <div class="text-center mt-2 mb-4">
+                    <h3>Create Employee</h3>
+                </div>
+    
+                <form class="px-3" action="/employess/create" method="post">
+
+                    <div class="mb-3">
+                        <label for="firstname" class="form-label">Firstname</label>
+                        <input class="form-control" type="text" id="firstname" name="firstname" required="" placeholder="John">
+                    </div>
+
+                    <div class="mb-3">
+                        <label for="lastname" class="form-label">Lastname</label>
+                        <input class="form-control" type="text" id="lastname" name="lastname" required="" placeholder="Doe">
+                    </div>
+
+                    <div class="mb-3">
+                        <label for="email" class="form-label">Email</label>
+                        <input class="form-control" type="email" required="" id="email" name="email" placeholder="employee@employee.com">
+                    </div>
+
+                    <div class="mb-3">
+                        <label for="password" class="form-label">Password</label>
+                        <input class="form-control" type="password" required="" id="password" name="password" placeholder="MySuperSecretPassword">
+                    </div>
+
+                    <div class="mb-3 text-center">
+                        <button class="btn btn-primary" type="submit">Create Employee</button>
+                    </div>
+
+                </form>
+
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- update account modal content -->
+<div id="update-account-modal" class="modal fade" tabindex="-1" role="dialog" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-body">
+                <div class="text-center mt-2 mb-4">
+                    <h3>Update Account</h3>
+                </div>
+    
+                <form class="px-3" id="updateForm" action="" method="post">
+
+                    <div class="mb-3">
+                        <label for="network" class="form-label">Network</label>
+                        <input class="form-control" type="text" id="networkUpdate" name="network" required="" placeholder="Affiliate Network">
+                    </div>
+
+                    <div class="mb-3">
+                        <label for="username" class="form-label">Username</label>
+                        <input class="form-control" type="text" id="usernameUpdate" name="username" required="" placeholder="affiliate@hamburger.com">
+                    </div>
+
+                    <div class="mb-3">
+                        <label for="password" class="form-label">Password</label>
+                        <input class="form-control" type="text" required="" id="passwordUpdate" name="password" placeholder="MySuperSecretPassword">
+                    </div>
+
+                    <div class="mb-3 text-center">
+                        <button class="btn btn-primary" type="submit">Update</button>
+                    </div>
+
+                </form>
+
+            </div>
+        </div>
+    </div>
+</div>
