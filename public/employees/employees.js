@@ -16,7 +16,7 @@
                 body += "<td>" + moment(users.createdAt).format("DD-MM-YYYY") + "</td>";
                 body += "<td>";
                 body += "<a style='margin-right:5px;' onclick=\"getEmployeesById('"+ users._id +"')\" data-bs-toggle='modal' data-bs-target='#update-employee-modal' ><i class='mdi mdi-file-document-edit-outline'></i></a>";
-                // body += "<a onclick=\" return confirm('Are you sure you want to Delete?') && deleteAccountById('"+ users._id +"')\"><i class='mdi mdi-close'></i></a>";
+                body += "<a onclick=\" return confirm('Are you sure you want to Delete?') && deleteEmployeeById('"+ users._id +"')\"><i class='mdi mdi-close'></i></a>";
                 body += "</td>";
                 body += "</tr>";
                 $("#addEmployeeData").append(body);
@@ -70,4 +70,21 @@ function updateEmployeeById(id) {
     }
 }
 // =========================================================
+// Delete a project by its ID 
 
+function deleteEmployeeById(id) {
+    try {
+        $.ajax({
+            method: "DELETE",
+            url: "/employees/" + id,
+            dataType: "json"
+        }).done(
+            location.reload()
+        );
+
+    } catch (error) {
+        alert("Error")
+        console.log(error);
+    }
+    
+};

@@ -89,6 +89,21 @@ router.post("/employees/:id", authentication, async (req, res) => {
     }
 });
 
+// Delete a single project
+router.delete("/employees/:id", authentication, async (req, res) => {
+    try {
+        const user = await User.findOneAndDelete({ _id: req.params.id});
+
+        if(!user) {
+            return res.status(404).send();
+        };
+
+        res.send(user);
+    } catch (error) {
+        res.status(500).send(error);
+    }
+});
+
 
 
 module.exports = router;
