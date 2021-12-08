@@ -23,6 +23,7 @@
                         <th>Lastname</th>
                         <th>Role</th>
                         <th>Email</th>
+                        <th>Create Date</th>
                         <th>Actions</th>
                     </tr>
                 </thead> 
@@ -78,33 +79,41 @@
 </div>
 
 <!-- update account modal content -->
-<div id="update-account-modal" class="modal fade" tabindex="-1" role="dialog" aria-hidden="true">
+<div id="update-employee-modal" class="modal fade" tabindex="-1" role="dialog" aria-hidden="true">
     <div class="modal-dialog">
         <div class="modal-content">
             <div class="modal-body">
                 <div class="text-center mt-2 mb-4">
-                    <h3>Update Account</h3>
+                    <h3>Update Employee</h3>
                 </div>
     
-                <form class="px-3" id="updateForm" action="" method="post">
+                <form class="px-3" id="updateEmployeeForm" action="" method="post">
 
                     <div class="mb-3">
-                        <label for="network" class="form-label">Network</label>
-                        <input class="form-control" type="text" id="networkUpdate" name="network" required="" placeholder="Affiliate Network">
+                        <label for="firstname" class="form-label">Firstname</label>
+                        <input class="form-control" type="text" id="updateFirstname" name="firstname" required="" placeholder="John">
                     </div>
 
                     <div class="mb-3">
-                        <label for="username" class="form-label">Username</label>
-                        <input class="form-control" type="text" id="usernameUpdate" name="username" required="" placeholder="affiliate@hamburger.com">
+                        <label for="lastname" class="form-label">Lastname</label>
+                        <input class="form-control" type="text" id="updateLastname" name="lastname" required="" placeholder="Doe">
                     </div>
 
                     <div class="mb-3">
-                        <label for="password" class="form-label">Password</label>
-                        <input class="form-control" type="text" required="" id="passwordUpdate" name="password" placeholder="MySuperSecretPassword">
+                        <label for="email" class="form-label">Email</label>
+                        <input class="form-control" type="email" required="" id="updateEmail" name="email" placeholder="employee@employee.com">
+                    </div>
+
+                    <div class="mb-3">
+                        <label for="role" class="form-label">Role</label>
+                        <select id="updateRole" class="form-select" aria-label="role" name="role" required>
+                           <option value="user">User</option>
+                           <option value="admin">Admin</option>
+                        </select>                        
                     </div>
 
                     <div class="mb-3 text-center">
-                        <button class="btn btn-primary" type="submit">Update</button>
+                        <button class="btn btn-primary" type="submit">Update Employee</button>
                     </div>
 
                 </form>

@@ -46,6 +46,24 @@ router.get("/employees/all", authentication, async (req, res) => {
     }
 });
 
+// Get a employee by its ID
+router.get("/employees/:id", authentication, async (req, res) => {
+
+    try{
+        const employee = await User.findOne({_id: req.params.id});
+
+        if(!employee) {
+            return res.status(404).send();
+        }
+
+        res.send(employee);
+
+    } catch (error) {
+        res.status(500).send(error);
+        console.log(error);
+    }
+});
+
 
 
 module.exports = router;
