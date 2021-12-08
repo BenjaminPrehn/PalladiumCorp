@@ -2,6 +2,7 @@
 const express = require('express');
 const router = new express.Router();
 const authentication = require('../middelware/authentication.js');
+const access = require('../middelware/grantAccess.js');
 const bodyParser = require('body-parser');
 
 //Middelware
@@ -11,7 +12,7 @@ router.use(bodyParser.urlencoded({ extended: true }));
 const User = require('../models/users');
 
 // Get user profile
-router.get("/users/me", authentication, (req, res) => {
+router.get("/users/me", authentication, access('readOwn','users'), (req, res) => {
     res.send(req.user);
 });
 
@@ -29,7 +30,7 @@ router.post("/users/login", async (req, res) => {
 });
 
 // Update a user
-router.post("/users/userUpdate", authentication, async (req, res) => {
+router.post("/users/userUpdate", authentication, access('updateOwn','users'), async (req, res) => {
     const updates = Object.keys(req.body);
 
     try {

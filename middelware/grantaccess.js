@@ -8,6 +8,8 @@ const roles = (function () {
     .updateOwn("account")
     .createOwn("account")
     .deleteOwn("account")
+    .readOwn('users')
+    .updateOwn('users')
   ac.grant("admin")
     .extend("user")
     .readAny("account")
