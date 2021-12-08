@@ -7,12 +7,17 @@ const roles = (function () {
     .readOwn("account")
     .updateOwn("account")
     .createOwn("account")
+    .deleteOwn("account")
   ac.grant("admin")
     .extend("user")
     .readAny("account")
+    .createAny("account")
     .updateAny("account")
-    .updateAny("users")
     .deleteAny("account")
+    .readAny("users")
+    .createAny("users")
+    .updateAny("users")
+    .deleteAny("users")
 
   return ac;
 })();
@@ -21,17 +26,16 @@ const roles = (function () {
 const grantAccess = function (action, resource) {
   return async (req, res, next) => {
     try {
-      console.log(req.user.role);
       const permission = roles.can(req.user.role)[action](resource);
       if (!permission.granted) {
         return res.status(401).json({
           error: "You don't have enough permission to perform this action"
         });
       }
-      next()
+      next();
     } catch (error) {
       console.log(error);
-      next(error)
+      next(error);
     }
   }
 }

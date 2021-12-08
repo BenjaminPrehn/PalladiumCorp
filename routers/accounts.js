@@ -5,7 +5,7 @@ const Accounts = require('../models/account');
 const router = new express.Router();
 
 // Create a new account
-router.post("/accounts", authentication, async (req, res) => {
+router.post("/accounts", authentication, access('createOwn', 'account'), async (req, res) => {
 
     const accounts = new Accounts({
         ...req.body,
@@ -21,7 +21,7 @@ router.post("/accounts", authentication, async (req, res) => {
 });
 
 // Get all accounts 
-router.get("/accounts/all", authentication, async (req, res) => {
+router.get("/accounts/all", authentication, access('readOwn', 'account'), async (req, res) => {
     try{
         await req.user.populate({
             path: "accounts",
@@ -39,7 +39,7 @@ router.get("/accounts/all", authentication, async (req, res) => {
 });
 
 // Get a project by its ID
-router.get("/accounts/:id", authentication, async (req, res) => {
+router.get("/accounts/:id", authentication, access('readOwn', 'account'), async (req, res) => {
 
     try{
         const account = await Accounts.findOne({_id: req.params.id, owner: req.user._id});
@@ -56,7 +56,7 @@ router.get("/accounts/:id", authentication, async (req, res) => {
     }
 });
 
-router.post("/accounts/:id", authentication, async (req, res) => {
+router.post("/accounts/:id", authentication, access('updateOwn', 'account'), async (req, res) => {
     const updates = Object.keys(req.body);
 
     try{
@@ -80,7 +80,7 @@ router.post("/accounts/:id", authentication, async (req, res) => {
 });
 
 // Delete a single project
-router.delete("/accounts/:id", authentication, async (req, res) => {
+router.delete("/accounts/:id", authentication, access('deleteOwn', 'account'), async (req, res) => {
     try {
         const account = await Accounts.findOneAndDelete({ _id: req.params.id, owner: req.user._id});
 

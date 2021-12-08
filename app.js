@@ -40,6 +40,7 @@ const footer = fs.readFileSync(__dirname + "/public/footer/footer.html", "utf-8"
 
 // End points
 app.get("/login", (req, res) => {
+
     res.send(login);
 });
 
@@ -48,6 +49,8 @@ app.get("/create", (req, res) => {
 });
 
 app.get("/", authentication, (req, res) => {
+    console.log(req.user.role + '1');
+    
     res.send(header + dashboard + footer);
 });
 
@@ -56,7 +59,11 @@ app.get("/profile", authentication, (req, res) => {
 });
 
 app.get("/employees", authentication, (req, res) => {
-    res.send(header + employees + footer);
+    if(req.user.role == 'admin'){
+        res.send(header + employees + footer);
+    }else{
+        res.send('Access denied')
+    }
 });
 
 
