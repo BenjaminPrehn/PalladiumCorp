@@ -23,9 +23,12 @@ function logout() {
         method: "POST",
         url: "/users/logout",
         dataType: "json",
-      },
-      (window.location.href = "/login")
-    ).done();
+      }
+      
+    ).done(
+
+        window.location.href = "/login"
+    );
   } catch (error) {
     console.log(error);
     alert(error);

@@ -64,6 +64,31 @@ router.get("/employees/:id", authentication, async (req, res) => {
     }
 });
 
+//Update employee by ID
+
+router.post("/employees/:id", authentication, async (req, res) => {
+    const updates = Object.keys(req.body);
+
+    try{
+        const user = await User.findOne({_id: req.params.id});
+
+        if(!user) {
+            return res.status(404).send();
+        };
+
+        updates.forEach((update) => {
+            user[update] = req.body[update];
+        });
+
+        await user.save();
+
+        res.redirect("/employees");
+
+    } catch (error) {
+        res.status(400).send(error);
+    }
+});
+
 
 
 module.exports = router;

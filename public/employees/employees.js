@@ -47,7 +47,7 @@ function getEmployeesById(id) {
                 $("#updateEmail").val(user.email);
                 $("#updateRole").val(user.role);
 
-                $("#updateForm").attr("action", "/employees/" + user._id);
+                $("#updateEmployeeForm").attr("action", "/employees/" + user._id);
             }
         );
     } catch (error) {
@@ -56,3 +56,18 @@ function getEmployeesById(id) {
     }
 }
 // =========================================================
+// Update a employee by it's id
+function updateEmployeeById(id) {
+    try {
+        $.ajax({
+            method: "POST",
+            url: "/employees/" + id,
+            dataType: "json"
+        }).done()
+            location.reload()
+        } catch (error) {
+            console.log(error);
+    }
+}
+// =========================================================
+

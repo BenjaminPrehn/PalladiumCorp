@@ -11,6 +11,7 @@ const roles = (function () {
     .extend("user")
     .readAny("account")
     .updateAny("account")
+    .updateAny("users")
     .deleteAny("account")
 
   return ac;
