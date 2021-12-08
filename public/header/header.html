@@ -52,32 +52,30 @@
                 aria-haspopup="false"
                 aria-expanded="false"
               >
-                <img
+                <!-- <img
                   src="../assets/images/users/user-1.jpg"
                   alt="user-image"
                   class="rounded-circle"
-                />
+                /> -->
                 <span class="pro-user-name ms-1" id="profileName">
                   <!-- John Doe <i class="mdi mdi-chevron-down"></i> -->
                 </span>
+                
               </a>
 
-              <div class="dropdown-menu dropdown-menu-end profile-dropdown">
-                <!-- item-->
-                <a href="" class="dropdown-item notify-item">
-                  <i class="fe-user"></i>
-                  <span>My Account</span>
-                </a>
-
-                <div class="dropdown-divider"></div>
-
-                <!-- item-->
-                <a href="" class="dropdown-item notify-item">
-                  <i class="fe-log-out"></i>
-                  <span>Logout</span>
-                </a>
-              </div>
             </li>
+
+            <li class="dropdown notification-list">
+              <a href="/profile" class="nav-link right-bar-toggle waves-effect waves-light">
+                  <i data-feather="user" class="icon-dual"></i>
+              </a>
+          </li>
+
+          <li class="dropdown notification-list">
+            <a onClick="logout()" class="nav-link right-bar-toggle waves-effect waves-light">
+                <i data-feather="log-out" class="icon-dual"></i>
+            </a>
+        </li>
           </ul>
 
           <!-- LOGO -->
@@ -148,7 +146,7 @@
               </li>
 
               <li>
-                <a href="/employess">
+                <a href="/employees">
                   <i class="mdi mdi-account-circle-outline"></i>
                   <span> Employees </span>
                 </a>

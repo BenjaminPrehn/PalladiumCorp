@@ -6,8 +6,8 @@
             dataType: "json"
         }).done(function(user) {
             // Adding name to header
-            $("#profileName").append(user.firstname + " " + user.lastname + " (" + user.role + ") " + "<i class='mdi mdi-chevron-down'></i>");
-
+            $("#profileName").append(user.firstname + " " + user.lastname + " (" + user.role + ") ");
+            
             // Adding name to profile page
             $("#accountName").text(user.firstname + " " + user.lastname );
 

@@ -10,31 +10,35 @@ router.use(bodyParser.urlencoded({ extended: true }));
 const User = require('../models/users');
 
 // Create a new employee
-router.post("/employess/create", async (req, res) => {
+router.post("/employees/create", async (req, res) => {
     const user = new User(req.body);
 
     try {
         await user.save();
         await user.generateAuthToken();
 
-        res.status(201)
+        res.status(201).redirect("/employees")
     } catch (error) {
         res.status(400).send(error);
     }
 });
 
 // Get all employess
-router.get("/employess/all", authentication, async (req, res) => {
+router.get("/employees/all", authentication, async (req, res) => {
     try{
-        await req.user.populate({
-            path: "user",
-            options: {
 
-            }
-        });
+        User.find({}, function(err, users) {
+            let userMap = {};
+        
+            users.forEach(function(user) {
+              userMap[user._id] = user;
+            });
+        
+            res.send(userMap);  
+            // console.log(userMap);
+          });
 
-        res.send(req.user);
-        console.log(req.user);
+
         
     } catch (error) {
         console.log(error);

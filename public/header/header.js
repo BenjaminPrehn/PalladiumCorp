@@ -6,7 +6,7 @@ function logout() {
             method: "POST",
             url: "/users/logout",
             dataType: "json"
-        }, window.location.reload()
+        }, window.location.href = "/login"
         ).done(
 
         );
