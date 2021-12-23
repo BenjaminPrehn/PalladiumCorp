@@ -5,7 +5,11 @@
   "main": "index.js",
   "scripts": {
     "start": "node app.js",
-    "dev": "nodemon app.js"
+    "dev": "nodemon index.js",
+    "test": "env-cmd -f ./config/test.env jest --watch"
+  },
+  "jest": {
+    "testEnviroment": "node"
   },
   "repository": {
     "type": "git",
@@ -32,5 +36,10 @@
     "moment": "^2.29.1",
     "mongoose": "^6.0.13",
     "validator": "^13.7.0"
+  },
+  "devDependencies": {
+    "env-cmd": "^10.1.0",
+    "jest": "^27.4.5",
+    "supertest": "^3.4.1"
   }
 }
