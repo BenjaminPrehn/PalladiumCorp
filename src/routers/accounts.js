@@ -14,7 +14,8 @@ router.post("/accounts", authentication, access('createOwn', 'account'), async (
 
     try {
         await accounts.save();
-        res.status(201).redirect("/");
+        res.status(201)
+        .redirect("/");
     } catch (error) {
         res.status(400).send(error);
     }
