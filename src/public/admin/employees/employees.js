@@ -3,12 +3,13 @@
     try {
     $.ajax({
             method: "GET",
-            url: "/employees/all",
+            url: "/admin/employees/all",
             dataType: "json"
         }).done(function(data) {
             $.each(data, function(i, users) {
 
                 var body = "<tr>";
+                body += "<td>" + users._id + "</td>";
                 body += "<td>" + users.firstname + "</td>";
                 body += "<td>" + users.lastname + "</td>";
                 body += "<td>" + users.role + "</td>";

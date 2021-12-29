@@ -4,7 +4,7 @@
   "description": "School project - Creating a web-app for palladium partners handling data",
   "main": "index.js",
   "scripts": {
-    "start": "node app.js",
+    "start": "node index.js",
     "dev": "nodemon index.js",
     "test": "env-cmd -f ./config/test.env jest --watch --runInBand"
   },

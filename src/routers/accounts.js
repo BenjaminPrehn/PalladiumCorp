@@ -21,7 +21,7 @@ router.post("/accounts", authentication, access('createOwn', 'account'), async (
     }
 });
 
-// Get all accounts 
+// Get all users accounts 
 router.get("/accounts/all", authentication, access('readOwn', 'account'), async (req, res) => {
     try{
         await req.user.populate({
@@ -39,7 +39,9 @@ router.get("/accounts/all", authentication, access('readOwn', 'account'), async 
     }
 });
 
-// Get a project by its ID
+
+
+// Get a account by its ID
 router.get("/accounts/:id", authentication, access('readOwn', 'account'), async (req, res) => {
 
     try{

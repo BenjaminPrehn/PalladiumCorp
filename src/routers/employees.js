@@ -24,29 +24,6 @@ router.post("/employees/create", authentication, access('createAny', 'users'), a
     }
 });
 
-// Get all employess
-router.get("/employees/all", authentication, access('readAny', 'users'), async (req, res) => {
-    try{
-
-        User.find({}, function(err, users) {
-            let userMap = {};
-        
-            users.forEach(function(user) {
-              userMap[user._id] = user;
-            });
-        
-            res.send(userMap);  
-            // console.log(userMap);
-          });
-
-
-        
-    } catch (error) {
-        console.log(error);
-        res.status(500).send(error);
-    }
-});
-
 // Get a employee by its ID
 router.get("/employees/:id", authentication, access('readAny', 'users'), async (req, res) => {
 

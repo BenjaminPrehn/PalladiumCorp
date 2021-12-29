@@ -13,6 +13,11 @@
     <link href="../assets/libs/datatables.net-responsive-bs5/css/responsive.bootstrap5.min.css" rel="stylesheet" type="text/css" />
     <link href="../assets/libs/datatables.net-buttons-bs5/css/buttons.bootstrap5.min.css" rel="stylesheet" type="text/css" />
     <link href="../assets/libs/datatables.net-select-bs5/css//select.bootstrap5.min.css" rel="stylesheet" type="text/css" />
+    <link href="../assets/libs/mohithg-switchery/switchery.min.css" rel="stylesheet" type="text/css" />
+    <link href="../assets/libs/multiselect/css/multi-select.css" rel="stylesheet" type="text/css" />
+    <link href="../assets/libs/select2/css/select2.min.css" rel="stylesheet" type="text/css" />
+    <link href="../assets/libs/selectize/css/selectize.bootstrap3.css" rel="stylesheet" type="text/css" />
+    <link href="../assets/libs/bootstrap-touchspin/jquery.bootstrap-touchspin.min.css" rel="stylesheet" type="text/css" />
     <!-- third party css end -->
 
     <!-- App css -->
@@ -146,11 +151,22 @@
               </li>
 
               <li id="displayEmployees">
-                <a href="/employees">
-                  <i class="mdi mdi-account-circle-outline"></i>
-                  <span> Employees </span>
+                <a href="#sidebarAdmin" data-bs-toggle="collapse">
+                    <i class="mdi mdi-account-multiple-outline"></i>
+                    <span> Admin access </span>
+                    <span class="menu-arrow"></span>
                 </a>
-              </li>
+                <div class="collapse" id="sidebarAdmin">
+                    <ul class="nav-second-level">
+                        <li>
+                            <a href="/employees">Employees</a>
+                        </li>
+                        <li>
+                            <a href="/accounts">Accounts</a>
+                        </li>
+                    </ul>
+                </div>
+            </li>
             </ul>
           </div>
           <!-- End Sidemenu -->

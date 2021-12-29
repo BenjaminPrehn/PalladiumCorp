@@ -1,29 +1,28 @@
-
-
 // Get projects upon docuemnt load
 (async function getAccounts() {
     try {
     $.ajax({
             method: "GET",
-            url: "/accounts/all",
+            url: "/admin/accounts/all",
             dataType: "json"
         }).done(function(data) {
-
             $.each(data, function(i, accounts) {
 
                 var body = "<tr>";
                 body += "<td>" + accounts.network + "</td>";
                 body += "<td>" + accounts.username + "</td>";
                 body += "<td>" + accounts.password + "</td>";
+                body += "<td>" + accounts.owner + "</td>";
+                body += "<td>" + moment(accounts.createdAt).format("DD-MM-YYYY") + "</td>";
                 body += "<td>";
-                body += "<a style='margin-right:5px;' onclick=\"getAccountById('"+ accounts._id +"')\" data-bs-toggle='modal' data-bs-target='#update-account-modal' ><i class='mdi mdi-file-document-edit-outline'></i></a>";
-                body += "<a onclick=\" return confirm('Are you sure you want to Delete?') && deleteAccountById('"+ accounts._id +"')\"><i class='mdi mdi-close'></i></a>";
+                body += "<a style='margin-right:5px;' onclick=\"getAdminAccountById('"+ accounts._id +"')\" data-bs-toggle='modal' data-bs-target='#admin-update-account-modal' ><i class='mdi mdi-file-document-edit-outline'></i></a>";
+                body += "<a style='margin-right:5px;' onclick=\"getAllEmployeeIds('"+ accounts._id +"')\" data-bs-toggle='modal' data-bs-target='#admin-update-account-owner-modal' ><i class='mdi mdi-account-question'></i></a>";
+                body += "<a onclick=\" return confirm('Are you sure you want to Delete?') && deleteAdminAccountById('"+ accounts._id +"')\"><i class='mdi mdi-close'></i></a>";
                 body += "</td>";
                 body += "</tr>";
-                $("#addData").append(body);
+                $("#addAccountsData").append(body);
             });
-            var init = "<script src='../assets/js/pages/datatables.init.js'></script>"
-            $("#initTable").append(init);
+
         })
 
     } catch (error) {
@@ -33,28 +32,39 @@
 })();
 
 // =========================================================
-
-// Update a account by it's id
-function updateAccountById(id) {
+// Get all employee ID's
+function getAllEmployeeIds(id) {
     try {
-        $.ajax({
-            method: "POST",
-            url: "/accounts/" + id,
+    $.ajax({
+            method: "GET",
+            url: "/admin/employees/all",
             dataType: "json"
-        }).done()
-            location.reload()
-        } catch (error) {
-            console.log(error);
-    }
-}
+        }).done(
+            function(data) {
+            $.each(data, function(i, users) {
+                var option = "<option value='" + users._id + "'>" + users.firstname + "</option>";
 
+                $("#employee-ids").append(option);
+                
+            },
+           
+            $("#updateIdForm").attr("action", "/admin/accounts/" + id)
+            
+            );
+        })
+
+    } catch (error) {
+        console.log(error);
+    };
+
+}
 // =========================================================
 // Get an account by it's id
-function getAccountById(id) {
+function getAdminAccountById(id) {
     try {
            $.ajax({
                 method: "GET",
-                url: "/accounts/" + id,
+                url: "/admin/accounts/" + id,
                 dataType: "json"
             }).done(
                 function(account) {
@@ -64,8 +74,9 @@ function getAccountById(id) {
                 $("#networkUpdate").val(account.network);
                 $("#usernameUpdate").val(account.username);
                 $("#passwordUpdate").val(account.password);
+                $("#ownerUpdate").val(account.owner);
 
-                $("#updateForm").attr("action", "/accounts/" + account._id);
+                $("#updateForm").attr("action", "/admin/accounts/" + account._id);
             }
             
         );
@@ -74,28 +85,34 @@ function getAccountById(id) {
         console.log(error);
     }
 }
+
+
+
 // =========================================================
 // Update a account by it's id
-function updateAccountById(id) {
+function updateAdminAccountById(id) {
     try {
         $.ajax({
             method: "POST",
-            url: "/accounts/" + id,
+            url: "/admin/accounts/" + id,
             dataType: "json"
         }).done()
+        
             location.reload()
         } catch (error) {
             console.log(error);
     }
 }
+
+
 // =========================================================
 // Delete a project by its ID 
 
-function deleteAccountById(id) {
+function deleteAdminAccountById(id) {
     try {
         $.ajax({
             method: "DELETE",
-            url: "/accounts/" + id,
+            url: "/admin/accounts/" + id,
             dataType: "json"
         }).done(
             location.reload()
@@ -107,3 +124,4 @@ function deleteAccountById(id) {
     }
     
 };
+

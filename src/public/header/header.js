@@ -9,8 +9,7 @@
 
         if (user.role == "user")
           document.getElementById("displayEmployees").style.display = "none";
-
-      });
+        });
     } catch (error) {
       console.log(error);
     }

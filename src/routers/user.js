@@ -2,7 +2,7 @@
 const express = require('express');
 const router = new express.Router();
 const authentication = require('../middelware/authentication.js');
-const access = require('../middelware/grantAccess.js');
+const access = require('../middelware/grantaccess.js');
 const bodyParser = require('body-parser');
 
 //Middelware
