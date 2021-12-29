@@ -9,17 +9,17 @@
             $.each(data, function(i, accounts) {
 
                 var body = "<tr>";
-                body += "<td> <a href='"+ accounts.url + "'>" + accounts.url + " </a> </td>";
+                body += "<td> <a style='color:white; text-decoration: underline;' target='_blank' href='"+ accounts.url + "'>" + accounts.url + " </a> </td>";
                 body += "<td>" + accounts.network + "</td>";
                 body += "<td>" + accounts.username + "</td>";
                 body += "<td>" + accounts.password + "</td>";
                 body += "<td>" + accounts.owner + "</td>";
                 body += "<td>" + moment(accounts.createdAt).format("DD-MM-YYYY") + "</td>";
                 body += "<td>";
-                body += "<a style='margin-right:5px;' onclick=\"getAdminAccountById('"+ accounts._id +"')\" data-bs-toggle='modal' data-bs-target='#admin-update-account-modal' ><i class='mdi mdi-file-document-edit-outline'></i></a>";
-                body += "<a style='margin-right:5px;' onclick=\"getAllEmployeeIds('"+ accounts._id +"')\" data-bs-toggle='modal' data-bs-target='#admin-update-account-owner-modal' ><i class='mdi mdi-account-question'></i></a>";
-                body += "<a style='margin-right:5px;' onclick=\"getAllEmployeeAndSendIds('"+ accounts._id +"')\" data-bs-toggle='modal' data-bs-target='#admin-send-account-modal' ><i class='mdi mdi-email'></i></a>";
-                body += "<a onclick=\" return confirm('Are you sure you want to Delete?') && deleteAdminAccountById('"+ accounts._id +"')\"><i class='mdi mdi-close'></i></a>";
+                body += "<a href='' style='margin-right:5px; color:white;' onclick=\"getAdminAccountById('"+ accounts._id +"')\" data-bs-toggle='modal' data-bs-target='#admin-update-account-modal' ><i class='mdi mdi-file-document-edit-outline'></i></a>";
+                body += "<a href='' style='margin-right:5px; color:white;' onclick=\"getAllEmployeeIds('"+ accounts._id +"')\" data-bs-toggle='modal' data-bs-target='#admin-update-account-owner-modal' ><i class='mdi mdi-account-question'></i></a>";
+                body += "<a href='' style='margin-right:5px; color:white;' onclick=\"getAllEmployeeAndSendIds('"+ accounts._id +"')\" data-bs-toggle='modal' data-bs-target='#admin-send-account-modal' ><i class='mdi mdi-email'></i></a>";
+                body += "<a href='' style='margin-right:5px; color:red;' onclick=\" return confirm('Are you sure you want to Delete?') && deleteAdminAccountById('"+ accounts._id +"')\"><i class='mdi mdi-close'></i></a>";
                 body += "</td>";
                 body += "</tr>";
                 $("#addAccountsData").append(body);

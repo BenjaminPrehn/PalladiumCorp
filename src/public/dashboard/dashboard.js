@@ -12,14 +12,14 @@
             $.each(data, function(i, accounts) {
 
                 var body = "<tr>";
-                body += "<td> <a href='"+ accounts.url + "'>" + accounts.url + " </a> </td>";
+                body += "<td> <a style='color:white; text-decoration: underline;' target='_blank' href='"+ accounts.url + "'>" + accounts.url + " </a> </td>";
                 body += "<td>" + accounts.network + "</td>";
                 body += "<td>" + accounts.username + "</td>";
                 body += "<td>" + accounts.password + "</td>";
                 body += "<td>";
-                body += "<a style='margin-right:5px;' onclick=\"getAccountById('"+ accounts._id +"')\" data-bs-toggle='modal' data-bs-target='#update-account-modal' ><i class='mdi mdi-file-document-edit-outline'></i></a>";
-                body += "<a style='margin-right:5px;' onclick=\"getAccountByIdAndSend('"+ accounts._id +"')\" data-bs-toggle='modal' data-bs-target='#send-modal' ><i class='mdi mdi-email'></i></a>";
-                body += "<a onclick=\" return confirm('Are you sure you want to Delete?') && deleteAccountById('"+ accounts._id +"')\"><i class='mdi mdi-close'></i></a>";
+                body += "<a style='margin-right:5px; color:white;' href='' onclick=\"getAccountById('"+ accounts._id +"')\" data-bs-toggle='modal' data-bs-target='#update-account-modal' ><i class='mdi mdi-file-document-edit-outline'></i></a>";
+                body += "<a style='margin-right:5px; color:white;' href=''  onclick=\"getAccountByIdAndSend('"+ accounts._id +"')\" data-bs-toggle='modal' data-bs-target='#send-modal' ><i class='mdi mdi-email'></i></a>";
+                body += "<a style='margin-right:5px; color:red;' href='' onclick=\" return confirm('Are you sure you want to Delete?') && deleteAccountById('"+ accounts._id +"')\"><i class='mdi mdi-close'></i></a>";
                 body += "</td>";
                 body += "</tr>";
                 $("#addData").append(body);
