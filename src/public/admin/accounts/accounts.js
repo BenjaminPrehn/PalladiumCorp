@@ -17,6 +17,7 @@
                 body += "<td>";
                 body += "<a style='margin-right:5px;' onclick=\"getAdminAccountById('"+ accounts._id +"')\" data-bs-toggle='modal' data-bs-target='#admin-update-account-modal' ><i class='mdi mdi-file-document-edit-outline'></i></a>";
                 body += "<a style='margin-right:5px;' onclick=\"getAllEmployeeIds('"+ accounts._id +"')\" data-bs-toggle='modal' data-bs-target='#admin-update-account-owner-modal' ><i class='mdi mdi-account-question'></i></a>";
+                body += "<a style='margin-right:5px;' onclick=\"getAllEmployeeAndSendIds('"+ accounts._id +"')\" data-bs-toggle='modal' data-bs-target='#admin-send-account-modal' ><i class='mdi mdi-email'></i></a>";
                 body += "<a onclick=\" return confirm('Are you sure you want to Delete?') && deleteAdminAccountById('"+ accounts._id +"')\"><i class='mdi mdi-close'></i></a>";
                 body += "</td>";
                 body += "</tr>";
@@ -60,6 +61,31 @@ function getAllEmployeeIds(id) {
 
 }
 // =========================================================
+// Get Account id send a email 
+function getAllEmployeeAndSendIds(id) {
+    try {
+    $.ajax({
+            method: "GET",
+            url: "/admin/accounts/" + id,
+            dataType: "json"
+        }).done(
+            function(account) {
+
+                $("#networkSendUpdate").val(account.network);
+                $("#usernameSendUpdate").val(account.username);
+                $("#passwordSendUpdate").val(account.password);
+
+           
+            $("#updateSendForm").attr("action", "/mail/send")
+            
+        })
+
+    } catch (error) {
+        console.log(error);
+    };
+
+}
+// =========================================================
 // Get an account by it's id
 function getAdminAccountById(id) {
     try {
@@ -86,25 +112,6 @@ function getAdminAccountById(id) {
         console.log(error);
     }
 }
-
-
-
-// =========================================================
-// Update a account by it's id
-// function updateAdminAccountById(id) {
-//     try {
-//         $.ajax({
-//             method: "POST",
-//             url: "/admin/accounts/" + id,
-//             dataType: "json"
-//         }).done()
-//             console.log('error');
-//             location.reload()
-//         } catch (error) {
-//             console.log(error);
-//     }
-// }
-
 
 // =========================================================
 // Delete a project by its ID 

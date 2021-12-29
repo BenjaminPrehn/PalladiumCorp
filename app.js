@@ -14,6 +14,7 @@ const userRouter = require('./src/routers/user');
 const accountsRouter = require('./src/routers/accounts');
 const employessRouter = require('./src/routers/employees');
 const adminRouter = require('./src/routers/admin');
+const mailRouter = require('./src/routers/mail');
 
 // Middelware
 app.use(express.static(__dirname + "/src/public"));
@@ -26,6 +27,7 @@ app.use(userRouter);
 app.use(accountsRouter);
 app.use(employessRouter);
 app.use(adminRouter);
+app.use(mailRouter);
 
 // File System 
 const login = fs.readFileSync(__dirname + "/src/public/login.html", "utf-8");

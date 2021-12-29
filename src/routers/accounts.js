@@ -1,8 +1,11 @@
 const express = require('express');
 const authentication = require('../middelware/authentication.js');
 const access = require('../middelware/grantaccess.js');
+const nodemailer = require('nodemailer');
 const Accounts = require('../models/account');
 const router = new express.Router();
+
+
 
 // Create a new account
 router.post("/accounts", authentication, access('createOwn', 'account'), async (req, res) => {

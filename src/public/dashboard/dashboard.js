@@ -17,6 +17,7 @@
                 body += "<td>" + accounts.password + "</td>";
                 body += "<td>";
                 body += "<a style='margin-right:5px;' onclick=\"getAccountById('"+ accounts._id +"')\" data-bs-toggle='modal' data-bs-target='#update-account-modal' ><i class='mdi mdi-file-document-edit-outline'></i></a>";
+                body += "<a style='margin-right:5px;' onclick=\"getAccountByIdAndSend('"+ accounts._id +"')\" data-bs-toggle='modal' data-bs-target='#send-modal' ><i class='mdi mdi-email'></i></a>";
                 body += "<a onclick=\" return confirm('Are you sure you want to Delete?') && deleteAccountById('"+ accounts._id +"')\"><i class='mdi mdi-close'></i></a>";
                 body += "</td>";
                 body += "</tr>";
@@ -66,6 +67,32 @@ function getAccountById(id) {
                 $("#passwordUpdate").val(account.password);
 
                 $("#updateForm").attr("action", "/accounts/" + account._id);
+            }
+            
+        );
+    } catch (error) {
+        alert("Error")
+        console.log(error);
+    }
+}
+
+// =========================================================
+// Get an account by it's id and update form to send email
+function getAccountByIdAndSend(id) {
+    try {
+           $.ajax({
+                method: "GET",
+                url: "/accounts/" + id,
+                dataType: "json"
+            }).done(
+                function(account) {
+                console.log(account);
+
+                $("#networkSendUpdate").val(account.network);
+                $("#usernameSendUpdate").val(account.username);
+                $("#passwordSendUpdate").val(account.password);
+
+                $("#updateSendForm").attr("action", "/mail/send");
             }
             
         );

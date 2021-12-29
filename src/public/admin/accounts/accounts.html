@@ -149,3 +149,45 @@
         </div>
     </div>
 </div>
+
+<!-- update send modal content -->
+<div id="admin-send-account-modal" class="modal fade" tabindex="-1" role="dialog" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-body">
+                <div class="text-center mt-2 mb-4">
+                    <h3>Send account details: </h3>
+                </div>
+    
+                <form class="px-3" id="updateSendForm" action="" method="post">
+
+                    <div class="mb-3">
+                        
+                        <input class="form-control" type="text" hidden id="networkSendUpdate" name="network" required="" placeholder="Affiliate Network">
+                    </div>
+
+                    <div class="mb-3">
+                        
+                        <input class="form-control" type="text" hidden id="usernameSendUpdate" name="username" required="" placeholder="affiliate@hamburger.com">
+                    </div>
+
+                    <div class="mb-3">
+                        
+                        <input class="form-control" type="text" hidden required="" id="passwordSendUpdate" name="password" placeholder="MySuperSecretPassword">
+                    </div>
+
+                    <div class="mb-3">
+                        <label for="email" class="form-label">Send account to:</label>
+                        <input class="form-control" type="email" id="emailSendUpdate" name="email" required="" placeholder="employee@employee.dk">
+                    </div>
+
+                    <div class="mb-3 text-center">
+                        <button class="btn btn-primary" type="submit">Send details</button>
+                    </div>
+
+                </form>
+
+            </div>
+        </div>
+    </div>
+</div>
