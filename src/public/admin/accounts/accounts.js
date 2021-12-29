@@ -22,7 +22,6 @@
                 body += "</tr>";
                 $("#addAccountsData").append(body);
             });
-
         })
 
     } catch (error) {
@@ -41,8 +40,10 @@ function getAllEmployeeIds(id) {
             dataType: "json"
         }).done(
             function(data) {
+            $("#employee-ids").empty(),
+
             $.each(data, function(i, users) {
-                var option = "<option value='" + users._id + "'>" + users.firstname + "</option>";
+                var option = "<option value='" + users._id + "'>" + users.firstname + " " + users.lastname + "</option>";
 
                 $("#employee-ids").append(option);
                 
@@ -90,19 +91,19 @@ function getAdminAccountById(id) {
 
 // =========================================================
 // Update a account by it's id
-function updateAdminAccountById(id) {
-    try {
-        $.ajax({
-            method: "POST",
-            url: "/admin/accounts/" + id,
-            dataType: "json"
-        }).done()
-        
-            location.reload()
-        } catch (error) {
-            console.log(error);
-    }
-}
+// function updateAdminAccountById(id) {
+//     try {
+//         $.ajax({
+//             method: "POST",
+//             url: "/admin/accounts/" + id,
+//             dataType: "json"
+//         }).done()
+//             console.log('error');
+//             location.reload()
+//         } catch (error) {
+//             console.log(error);
+//     }
+// }
 
 
 // =========================================================

@@ -61,10 +61,11 @@ router.get("/admin/accounts/:id", authentication, access('readAny', 'account'), 
 // Update account by its ID
 router.post("/admin/accounts/:id", authentication, access('updateAny', 'account'), async (req, res) => {
     const updates = Object.keys(req.body);
-
+    console.log(updates);
     try{
         const account = await Accounts.findOne({_id: req.params.id });
 
+        console.log(req.params.id);
         if(!account) {
             return res.status(404).send();
         };
@@ -129,6 +130,23 @@ router.get("/admin/accountsanduser/:id", authentication, access('readAny', 'acco
     } catch (error) {
         res.status(500).send(error);
         console.log(error);
+    }
+});
+
+// Create a new account
+router.post("/admin/accounts", authentication, access('createOwn', 'account'), async (req, res) => {
+
+    const accounts = new Accounts({
+        ...req.body,
+        owner: req.user._id
+    });
+
+    try {
+        await accounts.save();
+        res.status(201)
+        .redirect("/");
+    } catch (error) {
+        res.status(400).send(error);
     }
 });
 

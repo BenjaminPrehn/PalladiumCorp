@@ -18,11 +18,11 @@ const accountsSchema = new mongoose.Schema({
         type: String,
         default: false
     },
-    owner: {
+    owner: [{
         type: mongoose.Schema.Types.ObjectId,
         required: true,
         ref: 'User'
-        }
+        }]
     
 }, {
     timestamps: true
