@@ -19,6 +19,7 @@
             <table id="datatable-buttons" class="table table-striped dt-responsive nowrap w-100">
                 <thead>
                     <tr>
+                        <th>Network URL</th>
                         <th>Network</th>
                         <th>Username</th>
                         <th>Password</th>
@@ -44,6 +45,11 @@
                 </div>
     
                 <form class="px-3" action="/accounts" method="post">
+
+                    <div class="mb-3">
+                        <label for="network" class="form-label">Network URL</label>
+                        <input class="form-control" type="text" id="url" name="url" required="" placeholder="https://google.com">
+                    </div>
 
                     <div class="mb-3">
                         <label for="network" class="form-label">Network</label>
@@ -81,6 +87,11 @@
                 </div>
     
                 <form class="px-3" id="updateForm" action="" method="post">
+
+                    <div class="mb-3">
+                        <label for="network" class="form-label">Network URL</label>
+                        <input class="form-control" type="text" id="urlUpdate" name="url" required="" placeholder="https://google.com">
+                    </div>
 
                     <div class="mb-3">
                         <label for="network" class="form-label">Network</label>
@@ -122,6 +133,10 @@
                     <div class="mb-3">
                         <label for="email" class="form-label">Send account to:</label>
                         <input class="form-control" type="email" id="networkUpdate" name="email" required="" placeholder="employee@employee.dk">
+                    </div>
+
+                    <div class="mb-3">
+                        <input class="form-control" type="text" hidden id="urlSendUpdate" name="url" required="" placeholder="https://google.com">
                     </div>
 
                     <div class="mb-3">

@@ -23,6 +23,7 @@ let transport = nodemailer.createTransport({
       text: `
       You have probably requested a login, please find it below:
       Network: ${req.body.network}
+      Network URL: ${req.body.url}
       Username: ${req.body.username}
       Password: ${req.body.password}
       `

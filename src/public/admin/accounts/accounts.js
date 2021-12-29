@@ -9,6 +9,7 @@
             $.each(data, function(i, accounts) {
 
                 var body = "<tr>";
+                body += "<td> <a href='"+ accounts.url + "'>" + accounts.url + " </a> </td>";
                 body += "<td>" + accounts.network + "</td>";
                 body += "<td>" + accounts.username + "</td>";
                 body += "<td>" + accounts.password + "</td>";
@@ -71,6 +72,7 @@ function getAllEmployeeAndSendIds(id) {
         }).done(
             function(account) {
 
+                $("#networkSendUpdate").val(account.url);
                 $("#networkSendUpdate").val(account.network);
                 $("#usernameSendUpdate").val(account.username);
                 $("#passwordSendUpdate").val(account.password);
@@ -98,6 +100,7 @@ function getAdminAccountById(id) {
 
                 $("#title").text(account.network);
 
+                $("#urlUpdate").val(account.url);
                 $("#networkUpdate").val(account.network);
                 $("#usernameUpdate").val(account.username);
                 $("#passwordUpdate").val(account.password);

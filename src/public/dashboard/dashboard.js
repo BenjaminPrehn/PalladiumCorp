@@ -12,6 +12,7 @@
             $.each(data, function(i, accounts) {
 
                 var body = "<tr>";
+                body += "<td> <a href='"+ accounts.url + "'>" + accounts.url + " </a> </td>";
                 body += "<td>" + accounts.network + "</td>";
                 body += "<td>" + accounts.username + "</td>";
                 body += "<td>" + accounts.password + "</td>";
@@ -62,6 +63,7 @@ function getAccountById(id) {
 
                 $("#title").text(account.network);
 
+                $("#urlUpdate").val(account.url);
                 $("#networkUpdate").val(account.network);
                 $("#usernameUpdate").val(account.username);
                 $("#passwordUpdate").val(account.password);
@@ -89,6 +91,7 @@ function getAccountByIdAndSend(id) {
                 console.log(account);
 
                 $("#networkSendUpdate").val(account.network);
+                $("#urlSendUpdate").val(account.url);
                 $("#usernameSendUpdate").val(account.username);
                 $("#passwordSendUpdate").val(account.password);
 

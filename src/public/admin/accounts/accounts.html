@@ -19,6 +19,7 @@
             <table id="datatable-buttons" class="table table-striped dt-responsive nowrap w-100">
                 <thead>
                     <tr>
+                        <th>Network URL</th>
                         <th>Network</th>
                         <th>Username</th>
                         <th>Password</th>
@@ -36,48 +37,6 @@
 
 <!-- =========== MODALS ===========-->
 
-<!-- Create account modal content -->
-<div id="create-employee-modal" class="modal fade" tabindex="-1" role="dialog" aria-hidden="true">
-    <div class="modal-dialog">
-        <div class="modal-content">
-            <div class="modal-body">
-                <div class="text-center mt-2 mb-4">
-                    <h3>Create Employee</h3>
-                </div>
-    
-                <form class="px-3" action="/employees/create" method="post">
-
-                    <div class="mb-3">
-                        <label for="firstname" class="form-label">Firstname</label>
-                        <input class="form-control" type="text" id="firstname" name="firstname" required="" placeholder="John">
-                    </div>
-
-                    <div class="mb-3">
-                        <label for="lastname" class="form-label">Lastname</label>
-                        <input class="form-control" type="text" id="lastname" name="lastname" required="" placeholder="Doe">
-                    </div>
-
-                    <div class="mb-3">
-                        <label for="email" class="form-label">Email</label>
-                        <input class="form-control" type="email" required="" id="email" name="email" placeholder="employee@employee.com">
-                    </div>
-
-                    <div class="mb-3">
-                        <label for="password" class="form-label">Password</label>
-                        <input class="form-control" type="password" required="" id="password" name="password" placeholder="MySuperSecretPassword">
-                    </div>
-
-                    <div class="mb-3 text-center">
-                        <button class="btn btn-primary" type="submit">Create Employee</button>
-                    </div>
-
-                </form>
-
-            </div>
-        </div>
-    </div>
-</div>
-
 <!-- update account modal content -->
 <div id="admin-update-account-modal" class="modal fade" tabindex="-1" role="dialog" aria-hidden="true">
     <div class="modal-dialog">
@@ -88,6 +47,11 @@
                 </div>
     
                 <form class="px-3" id="updateForm" action="" method="post">
+
+                    <div class="mb-3">
+                        <label for="url" class="form-label">Network URL</label>
+                        <input class="form-control" type="text" id="urlUpdate" name="url" required="" placeholder="https://google.com">
+                    </div>
 
                     <div class="mb-3">
                         <label for="network" class="form-label">Network</label>
@@ -104,11 +68,6 @@
                         <input class="form-control" type="text" required="" id="passwordUpdate" name="password" placeholder="MySuperSecretPassword">
                     </div>
 
-                    <!-- <div class="mb-3">
-                        <label for="password" class="form-label">Owner</label>
-                        <input class="form-control" type="text" required="" id="ownerUpdate" name="owner" placeholder="myId">
-                    </div> -->
-
                     <div class="mb-3 text-center">
                         <button class="btn btn-primary" type="submit">Update</button>
                     </div>
@@ -120,7 +79,7 @@
     </div>
 </div>
 
-<!-- update account modal content -->
+<!-- update account owner modal content -->
 <div id="admin-update-account-owner-modal" class="modal fade" tabindex="-1" role="dialog" aria-hidden="true">
     <div class="modal-dialog">
         <div class="modal-content">
@@ -174,6 +133,11 @@
                     <div class="mb-3">
                         
                         <input class="form-control" type="text" hidden required="" id="passwordSendUpdate" name="password" placeholder="MySuperSecretPassword">
+                    </div>
+
+                    <div class="mb-3">
+                        
+                        <input class="form-control" type="text" hidden id="urlSendUpdate" name="url" required="" placeholder="https://google.com">
                     </div>
 
                     <div class="mb-3">

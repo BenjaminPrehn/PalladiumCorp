@@ -4,6 +4,11 @@ const validator = require('validator');
 
 // Account Schema
 const accountsSchema = new mongoose.Schema({
+    url: {
+        type: String,
+        required: true,
+        trim: true
+    },
     network: {
         type: String,
         required: true,
